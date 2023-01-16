@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2layout>
+    <name>Fase 2</name>
+    <event-sheet>Event sheet 1</event-sheet>
+    <size>
+        <width>10209</width>
+        <height>7538</height>
+    </size>
+    <margins>
+        <horizontal>500</horizontal>
+        <vertical>500</vertical>
+    </margins>
+    <unbounded-scrolling>1</unbounded-scrolling>
+    <layers>
+        <layer name="Layer 0">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>0</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <instances>
+                <instance type="Sprite">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <world>
+                        <x>5110</x>
+                        <y>3781</y>
+                        <z>0</z>
+                        <width>10209</width>
+                        <height>7538</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Dude">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <instance-variables>
+                        <HeroSpeed>250</HeroSpeed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>No</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="ScrollTo" />
+                        <behavior-instance type="BoundToLayout">
+                            <properties>
+                                <bound-by>Edge</bound-by>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <world>
+                        <x>3108.896972656</x>
+                        <y>3915.542236328</y>
+                        <z>0</z>
+                        <width>164.717697144</width>
+                        <height>172.027664185</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Flamey">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <instance-variables>
+                        <AtackVelocityX>0</AtackVelocityX>
+                        <AtackVelocityY>0</AtackVelocityY>
+                        <AtackPower>0</AtackPower>
+                    </instance-variables>
+                    <world>
+                        <x>3364</x>
+                        <y>3755</y>
+                        <z>0</z>
+                        <width>80</width>
+                        <height>150</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="WallBlock2">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Solid" />
+                    </behavior-instances>
+                    <world>
+                        <x>3713</x>
+                        <y>3663</y>
+                        <z>0</z>
+                        <width>100</width>
+                        <height>1959</height>
+                        <depth>0</depth>
+                        <angle>-0.044631682</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="WallBlock2">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Solid" />
+                    </behavior-instances>
+                    <world>
+                        <x>2528</x>
+                        <y>3455</y>
+                        <z>0</z>
+                        <width>100</width>
+                        <height>2383</height>
+                        <depth>0</depth>
+                        <angle>-0.028479109</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="WallBlock2">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>No</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Solid" />
+                    </behavior-instances>
+                    <world>
+                        <x>3142.5</x>
+                        <y>4622</y>
+                        <z>0</z>
+                        <width>1185</width>
+                        <height>66</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
+        </layer>
+    </layers>
+    <nonworld-instances />
+</c2layout>

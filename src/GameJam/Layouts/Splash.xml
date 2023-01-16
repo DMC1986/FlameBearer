@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2layout>
+    <name>Splash</name>
+    <event-sheet>Splash</event-sheet>
+    <size>
+        <width>800</width>
+        <height>600</height>
+    </size>
+    <margins>
+        <horizontal>1000</horizontal>
+        <vertical>1000</vertical>
+    </margins>
+    <unbounded-scrolling>0</unbounded-scrolling>
+    <layers>
+        <layer name="Layer 0">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>0</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <instances>
+                <instance type="Credits">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <world>
+                        <x>179.181671143</x>
+                        <y>216.909133911</y>
+                        <z>0</z>
+                        <width>328.363342285</width>
+                        <height>339.818267822</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Text">
+                    <properties>
+                        <text>Creditos</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Corbel,-27,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                    </properties>
+                    <world>
+                        <x>543.814147949</x>
+                        <y>72.364517212</y>
+                        <z>0</z>
+                        <width>400</width>
+                        <height>50</height>
+                        <depth>0</depth>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Text">
+                    <properties>
+                        <text>Fernando &quot;Neves&quot; Eisenhardt</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Corbel,-27,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                    </properties>
+                    <world>
+                        <x>426.817047119</x>
+                        <y>165.452468872</y>
+                        <z>0</z>
+                        <width>400</width>
+                        <height>50</height>
+                        <depth>0</depth>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Text">
+                    <properties>
+                        <text>Rafael &quot;Boi&quot; Brunhara</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Corbel,-27,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                    </properties>
+                    <world>
+                        <x>467.726501465</x>
+                        <y>251.818756104</y>
+                        <z>0</z>
+                        <width>400</width>
+                        <height>50</height>
+                        <depth>0</depth>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Text">
+                    <properties>
+                        <text>Thiago &quot;Buri&quot; Burian</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Corbel,-27,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                    </properties>
+                    <world>
+                        <x>464.087036133</x>
+                        <y>288.182067871</y>
+                        <z>0</z>
+                        <width>400</width>
+                        <height>50</height>
+                        <depth>0</depth>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Text">
+                    <properties>
+                        <text>Juliene &quot;Fy&quot; Ivy</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Corbel,-27,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                    </properties>
+                    <world>
+                        <x>458.631591797</x>
+                        <y>212.725570679</y>
+                        <z>0</z>
+                        <width>400</width>
+                        <height>50</height>
+                        <depth>0</depth>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Text">
+                    <properties>
+                        <text>Daniel &quot;Batata&quot; Castilho</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Corbel,-27,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                    </properties>
+                    <world>
+                        <x>464.997924805</x>
+                        <y>127.272857666</y>
+                        <z>0</z>
+                        <width>400</width>
+                        <height>50</height>
+                        <depth>0</depth>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
+        </layer>
+    </layers>
+    <nonworld-instances />
+</c2layout>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>HeroNavigation</name>
+    <events>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="12" name="Set world gravity" type="Dude">
+                    <param id="0" name="Gravity">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="2" name="Key is down" type="Keyboard">
+                    <param id="0" name="Key">87 (W)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="15" name="Set velocity" type="Dude">
+                    <param id="0" name="X component">0</param>
+                    <param id="1" name="Y component">-Dude.HeroSpeed</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="2" name="Key is down" type="Keyboard">
+                    <param id="0" name="Key">83 (S)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="15" name="Set velocity" type="Dude">
+                    <param id="0" name="X component">0</param>
+                    <param id="1" name="Y component">Dude.HeroSpeed</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="2" name="Key is down" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="15" name="Set velocity" type="Dude">
+                    <param id="0" name="X component">-Dude.HeroSpeed</param>
+                    <param id="1" name="Y component">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="2" name="Key is down" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="15" name="Set velocity" type="Dude">
+                    <param id="0" name="X component">Dude.HeroSpeed</param>
+                    <param id="1" name="Y component">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions />
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>

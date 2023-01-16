@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>FlameyActions</name>
+    <events>
+        <include>PowerUpBehavior</include>
+        <variable name="MaxFire" type="number">5</variable>
+        <variable name="Fire" type="number">5</variable>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" type="Flamey">
+                    <param id="0" name="X">lerp(Flamey.X + Flamey.AtackVelocityX * Flamey.AtackPower, Dude.ImagePointX(1), 0.04) </param>
+                </action>
+                <action id="-2" name="Set Y" type="Flamey">
+                    <param id="0" name="Y">lerp(Flamey.Y + Flamey.AtackVelocityY * Flamey.AtackPower, Dude.ImagePointY(1), 0.04) </param>
+                </action>
+                <action id="-3" name="Set position" type="MouseLight">
+                    <param id="0" name="X">Flamey.X</param>
+                    <param id="1" name="Y">Flamey.Y</param>
+                </action>
+                <action id="-7" name="Set size" type="Flamey">
+                    <param id="0" name="Width">8*fire</param>
+                    <param id="1" name="Height">18*fire</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" type="Flamey">
+                            <param id="0" name="Instance variable">AtackPower</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" type="Flamey">
+                            <param id="0" name="Instance variable">AtackPower</param>
+                            <param id="1" name="Value">0.2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" type="Flamey">
+                            <param id="0" name="Instance variable">AtackPower</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" type="Flamey">
+                            <param id="0" name="Instance variable">AtackPower</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-14" name="Compare variable" type="System">
+                            <param id="0" name="Variable">Fire</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" type="System">
+                            <param id="0" name="Variable">Flash</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" type="System">
+                            <param id="0" name="Variable">Fire</param>
+                            <param id="1" name="Value">0.0015</param>
+                        </action>
+                        <action id="-7" name="Set size" type="MouseLight">
+                            <param id="0" name="Width">Fire*120 + cos(tickcount) * 40</param>
+                            <param id="1" name="Height">Fire*120 + cos(tickcount) * 40</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" type="System">
+                    <param id="0" name="Variable">Fire</param>
+                    <param id="1" name="Value">MaxFire</param>
+                </action>
+                <action id="4" name="Set animation" type="Flamey">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Set opacity" type="Flamey">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-3" name="Set position" type="Flamey">
+                    <param id="0" name="X">Dude.X</param>
+                    <param id="1" name="Y">Dude.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="0" name="On click" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" type="Flamey">
+                    <param id="0" name="Object">Dude</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" type="Flamey">
+                    <param id="0" name="Instance variable">AtackVelocityX</param>
+                    <param id="1" name="Value">(Mouse.X- Flamey.X) / distance(Flamey.X,Flamey.Y, Mouse.X, Mouse.Y)</param>
+                </action>
+                <action id="-10" name="Set value" type="Flamey">
+                    <param id="0" name="Instance variable">AtackVelocityY</param>
+                    <param id="1" name="Value">(Mouse.Y- Flamey.Y) / distance(Flamey.X,Flamey.Y, Mouse.X, Mouse.Y)</param>
+                </action>
+                <action id="-10" name="Set value" type="Flamey">
+                    <param id="0" name="Instance variable">AtackPower</param>
+                    <param id="1" name="Value">5 + Fire</param>
+                </action>
+            </actions>
+        </event-block>
+        <variable name="Flash" type="number">0</variable>
+        <event-block>
+            <conditions>
+                <condition id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">Fire</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" type="MouseLight" />
+                <action id="-16" name="Wait" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="-2" name="Go to layout" type="System">
+                    <param id="0" name="Layout">Game Over</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+                <condition id="2" name="Is playing" type="Flamey">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" type="Flamey">
+                    <param id="0" name="Width">12*Fire</param>
+                    <param id="1" name="Height">18*Fire</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+                <condition id="2" name="Is playing" type="Flamey">
+                    <param id="0" name="Animation">&quot;GigaFlamey&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" type="Flamey">
+                    <param id="0" name="Width">12*Fire</param>
+                    <param id="1" name="Height">18*Fire</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-1" name="Every tick" type="System" />
+                <condition id="2" name="Is playing" type="Flamey">
+                    <param id="0" name="Animation">&quot;PunyFlamey&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" type="Flamey">
+                    <param id="0" name="Width">14*Fire</param>
+                    <param id="1" name="Height">18*Fire</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">Fire</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" type="Flamey">
+                    <param id="0" name="Animation">&quot;GigaFlamey&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" type="Flamey">
+                    <param id="0" name="Animation">&quot;PunyFlamey&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" type="Flamey">
+                    <param id="0" name="Instance variable">HasSpawned</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" type="Flamey">
+                    <param id="0" name="Opacity">Flamey.Opacity + 2</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-10" name="Compare opacity" type="Flamey">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Opacity">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" type="Flamey">
+                            <param id="0" name="Instance variable">HasSpawned</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="-14" name="Compare variable" type="System">
+                    <param id="0" name="Variable">Fire</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+                <condition id="2" name="Is playing" type="Flamey">
+                    <param id="0" name="Animation">&quot;PunyFlamey&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" type="Flamey">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2layout>
+    <name>Final</name>
+    <event-sheet>Final</event-sheet>
+    <size>
+        <width>800</width>
+        <height>500</height>
+    </size>
+    <margins>
+        <horizontal>500</horizontal>
+        <vertical>500</vertical>
+    </margins>
+    <unbounded-scrolling>0</unbounded-scrolling>
+    <layers>
+        <layer name="Layer 0">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>0</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <instances>
+                <instance type="Final1">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <world>
+                        <x>373.144226074</x>
+                        <y>302.161987305</y>
+                        <z>0</z>
+                        <width>975.69909668</width>
+                        <height>609.811950684</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Final2">
+                    <properties>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <world>
+                        <x>359.011230469</x>
+                        <y>314.792266846</y>
+                        <z>0</z>
+                        <width>883.037780762</width>
+                        <height>624.790893555</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Final3">
+                    <properties>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <world>
+                        <x>215.392028809</x>
+                        <y>417.999053955</y>
+                        <z>0</z>
+                        <width>1187.1953125</width>
+                        <height>839.563598633</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Final4">
+                    <properties>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-frame>0</initial-frame>
+                        <effect>(none)</effect>
+                        <auto-mirrorflip>(none)</auto-mirrorflip>
+                    </properties>
+                    <world>
+                        <x>371.167785645</x>
+                        <y>298.973693848</y>
+                        <z>0</z>
+                        <width>986.68737793</width>
+                        <height>607.192260742</height>
+                        <depth>0</depth>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
+        </layer>
+    </layers>
+    <nonworld-instances />
+</c2layout>

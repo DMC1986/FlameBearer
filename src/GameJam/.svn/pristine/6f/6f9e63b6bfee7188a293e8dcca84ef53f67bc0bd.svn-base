@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Fase</name>
+    <events>
+        <include>PowerUpBehavior</include>
+        <include>Hero</include>
+        <include>FlameyActions</include>
+        <event-group description="" title="EnemyBehaviour">
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" type="System">
+                            <param id="0" name="Interval (seconds)">3.0</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" type="ShaBat">
+                            <param id="0" name="Instance variable">IsIdle</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" type="ShaBat">
+                            <param id="0" name="Instance variable">EnemySpeedX</param>
+                            <param id="1" name="Value">-ShaBat.EnemySpeedX</param>
+                        </action>
+                        <action id="-10" name="Set value" type="ShaBat">
+                            <param id="0" name="Instance variable">EnemySpeedY</param>
+                            <param id="1" name="Value">-ShaBat.EnemySpeedY</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-1" name="Every tick" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" type="ShaBat">
+                            <param id="0" name="Instance variable">HeroDistance</param>
+                            <param id="1" name="Value">distance(Dude.X, Dude.Y, ShaBat.X, ShaBat.Y)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block>
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" type="ShaBat">
+                                    <param id="0" name="Instance variable">HeroDistance</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">ShaBat.AggroRadius</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" type="ShaBat">
+                                    <param id="0" name="Instance variable">IsIdle</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" type="ShaBat">
+                                            <param id="0" name="Instance variable">FlameResistance</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">MaxFire</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="15" name="Set velocity" type="ShaBat">
+                                            <param id="0" name="X component">-(Dude.X-ShaBat.X) * ShaBat.HeroDistance/ShaBat.AggroRadius</param>
+                                            <param id="1" name="Y component">-(Dude.Y-ShaBat.Y) * ShaBat.HeroDistance/ShaBat.AggroRadius</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-7" inverted="1" name="Compare instance variable" type="ShaBat">
+                                            <param id="0" name="Instance variable">FlameResistance</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">MaxFire</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="15" name="Set velocity" type="ShaBat">
+                                            <param id="0" name="X component">(Dude.X-ShaBat.X) * ShaBat.HeroDistance/ShaBat.AggroRadius</param>
+                                            <param id="1" name="Y component">(Dude.Y-ShaBat.Y) * ShaBat.HeroDistance/ShaBat.AggroRadius</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block>
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" type="ShaBat">
+                                    <param id="0" name="Instance variable">HeroDistance</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">ShaBat.AggroRadius</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" type="ShaBat">
+                                    <param id="0" name="Instance variable">IsIdle</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Physics" id="15" name="Set velocity" type="ShaBat">
+                                    <param id="0" name="X component">ShaBat.EnemySpeedX</param>
+                                    <param id="1" name="Y component">ShaBat.EnemySpeedY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On collision with another object" type="ShaBat">
+                            <param id="0" name="Object">Flamey</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" type="ShaBat">
+                            <param id="0" name="Instance variable">FlameResistance</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">MaxFire</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" type="ShaBat">
+                            <param id="0" name="Animation">&quot;Dissolve&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" type="ShaBat">
+                            <param id="0" name="Instance variable">IsDissolving</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="4" name="On finished" type="ShaBat">
+                            <param id="0" name="Animation">&quot;Dissolve&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" type="ShaBat" />
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On collision with another object" type="ShaBat">
+                            <param id="0" name="Object">Dude</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" type="System">
+                            <param id="0" name="Variable">Fire</param>
+                            <param id="1" name="Value">0.2</param>
+                        </action>
+                        <action id="-16" name="Wait" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" title="EnemyBehaviour">
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" type="System">
+                            <param id="0" name="Interval (seconds)">3.0</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" type="Shrab">
+                            <param id="0" name="Instance variable">IsIdle</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" type="Shrab">
+                            <param id="0" name="Instance variable">EnemySpeedX</param>
+                            <param id="1" name="Value">-Shrab.EnemySpeedX</param>
+                        </action>
+                        <action id="-10" name="Set value" type="Shrab">
+                            <param id="0" name="Instance variable">EnemySpeedY</param>
+                            <param id="1" name="Value">-Shrab.EnemySpeedY</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-1" name="Every tick" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" type="Shrab">
+                            <param id="0" name="Instance variable">HeroDistance</param>
+                            <param id="1" name="Value">distance(Dude.X, Dude.Y, Shrab.X, Shrab.Y)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block>
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" type="Shrab">
+                                    <param id="0" name="Instance variable">HeroDistance</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Shrab.AggroRadius</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" type="Shrab">
+                                    <param id="0" name="Instance variable">IsIdle</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" type="Shrab">
+                                            <param id="0" name="Instance variable">FlameResistance</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">MaxFire</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="15" name="Set velocity" type="Shrab">
+                                            <param id="0" name="X component">-(Dude.X-Shrab.X) * Shrab.HeroDistance/Shrab.AggroRadius</param>
+                                            <param id="1" name="Y component">-(Dude.Y-Shrab.Y) * Shrab.HeroDistance/Shrab.AggroRadius</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block>
+                                    <conditions>
+                                        <condition id="-7" inverted="1" name="Compare instance variable" type="Shrab">
+                                            <param id="0" name="Instance variable">FlameResistance</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">MaxFire</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="15" name="Set velocity" type="Shrab">
+                                            <param id="0" name="X component">(Dude.X-Shrab.X) * Shrab.HeroDistance/Shrab.AggroRadius</param>
+                                            <param id="1" name="Y component">(Dude.Y-Shrab.Y) * Shrab.HeroDistance/Shrab.AggroRadius</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block>
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" type="Shrab">
+                                    <param id="0" name="Instance variable">HeroDistance</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Shrab.AggroRadius</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" type="Shrab">
+                                    <param id="0" name="Instance variable">IsIdle</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Physics" id="15" name="Set velocity" type="Shrab">
+                                    <param id="0" name="X component">Shrab.EnemySpeedX</param>
+                                    <param id="1" name="Y component">Shrab.EnemySpeedY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On collision with another object" type="Shrab">
+                            <param id="0" name="Object">Flamey</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" type="Shrab">
+                            <param id="0" name="Instance variable">FlameResistance</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">MaxFire</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" type="Shrab" />
+                        <action id="-13" name="Set boolean" type="Shrab">
+                            <param id="0" name="Instance variable">IsIdle</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On collision with another object" type="Shrab">
+                            <param id="0" name="Object">Dude</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" type="System">
+                            <param id="0" name="Variable">Fire</param>
+                            <param id="1" name="Value">0.2</param>
+                        </action>
+                        <action id="-16" name="Wait" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" title="UserInterface">
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On key pressed" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On key pressed" type="Keyboard">
+                            <param id="0" name="Key">27 (Esc)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" type="System">
+                            <param id="0" name="Layout">Fase</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <variable name="MaxPower" type="number">8</variable>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+            </conditions>
+            <actions>
+                <action id="-20" name="Set layout scale" type="System">
+                    <param id="0" name="Scale">0.7</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" title="EnemyBehaviour">
+            <sub-events>
+                <event-block>
+                    <conditions>
+                        <condition disabled="1" id="-6" name="Every X seconds" type="System">
+                            <param id="0" name="Interval (seconds)">3.0</param>
+                        </condition>
+                        <condition disabled="1" id="-8" name="Is boolean instance variable set" type="Shadude">
+                            <param id="0" name="Instance variable">IsIdle</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-10" name="Set value" type="Shadude">
+                            <param id="0" name="Instance variable">EnemySpeedX</param>
+                            <param id="1" name="Value">-Shadude.EnemySpeedX</param>
+                        </action>
+                        <action disabled="1" id="-10" name="Set value" type="Shadude">
+                            <param id="0" name="Instance variable">EnemySpeedY</param>
+                            <param id="1" name="Value">-Shadude.EnemySpeedY</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-1" name="Every tick" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" type="Shadude">
+                            <param id="0" name="Instance variable">HeroDistance</param>
+                            <param id="1" name="Value">distance(Dude.X, Dude.Y, Shadude.X, Shadude.Y)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block>
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" type="Shadude">
+                                    <param id="0" name="Instance variable">HeroDistance</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Shadude.AggroRadius</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" type="Shadude">
+                                    <param id="0" name="Instance variable">IsIdle</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block>
+                                    <conditions>
+                                        <condition disabled="1" id="-7" name="Compare instance variable" type="Shadude">
+                                            <param id="0" name="Instance variable">FlameResistance</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">MaxFire</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" disabled="1" id="15" name="Set velocity" type="Shadude">
+                                            <param id="0" name="X component">-(Dude.X-Shadude.X) * Shadude.HeroDistance/Shadude.AggroRadius</param>
+                                            <param id="1" name="Y component">-(Dude.Y-Shadude.Y) * Shadude.HeroDistance/Shadude.AggroRadius</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block>
+                                    <conditions>
+                                        <condition disabled="1" id="-7" inverted="1" name="Compare instance variable" type="Shadude">
+                                            <param id="0" name="Instance variable">FlameResistance</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">MaxFire</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" disabled="1" id="15" name="Set velocity" type="Shadude">
+                                            <param id="0" name="X component">(Dude.X-Shadude.X) * Shadude.HeroDistance/Shadude.AggroRadius</param>
+                                            <param id="1" name="Y component">(Dude.Y-Shadude.Y) * Shadude.HeroDistance/Shadude.AggroRadius</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block>
+                            <conditions>
+                                <condition disabled="1" id="-7" name="Compare instance variable" type="Shadude">
+                                    <param id="0" name="Instance variable">HeroDistance</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Shadude.AggroRadius</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="-13" name="Set boolean" type="Shadude">
+                                    <param id="0" name="Instance variable">IsIdle</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Physics" disabled="1" id="15" name="Set velocity" type="Shadude">
+                                    <param id="0" name="X component">Shadude.EnemySpeedX</param>
+                                    <param id="1" name="Y component">Shadude.EnemySpeedY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On collision with another object" type="Shadude">
+                            <param id="0" name="Object">Flamey</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" type="Shadude">
+                            <param id="0" name="Instance variable">FlameResistance</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">MaxFire</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" type="Shadude">
+                            <param id="0" name="Animation">&quot;Hit&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-12" name="Subtract from" type="Shadude">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" type="System">
+                            <param id="0" name="Seconds">1.5</param>
+                        </action>
+                        <action id="4" name="Set animation" type="Shadude">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="0" name="On collision with another object" type="Shadude">
+                            <param id="0" name="Object">Dude</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" type="System">
+                            <param id="0" name="Variable">Fire</param>
+                            <param id="1" name="Value">0.8</param>
+                        </action>
+                        <action id="-16" name="Wait" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block>
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" type="Shadude">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" type="Shadude">
+                            <param id="0" name="Animation">&quot;Dissolve&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" type="Shadude">
+                            <param id="0" name="Instance variable">IsDissolving</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block>
+            <conditions>
+                <condition id="-2" name="On start of layout" type="System" />
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" type="System" />
+            </actions>
+        </event-block>
+        <event-block>
+            <conditions>
+                <condition id="4" name="On finished" type="Shadude">
+                    <param id="0" name="Animation">&quot;Dissolve&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" type="Shadude" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
